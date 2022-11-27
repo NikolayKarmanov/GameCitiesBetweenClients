@@ -10,6 +10,7 @@ import java.net.Socket;
 public class Server {
     public static void main(String[] args) {
         String city = " ";
+        int points = 0;
 
         try (ServerSocket serverSocket = new ServerSocket(8989);) {
             System.out.println("Game is started");
@@ -29,10 +30,13 @@ public class Server {
                     // начинается ли введенное слово на последнюю букву текущего слова
                     if(city == " " || getAnswer.charAt(0) == city.charAt(city.length() - 1)) {
                         city = getAnswer;
+                        points++;
                         out.println("OK");
                     } else {
+                        points = 0;
                         out.println("NOT OK");
                     }
+                    out.println("Number of points is " + points);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

@@ -23,6 +23,7 @@ public class Client {
             out.println(String.format(scanner.nextLine()));
             // Принимаем ответ от сервера (ОК или NOT OK) и выводим на экран
             System.out.println(in.readLine());
+            System.out.println(in.readLine());
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
