@@ -20,7 +20,7 @@ public class Server {
                      PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 ) {
                     // Отправляем клиенту "???" или последнее слово
-                    out.println(String.format((city == " ") ? "???" : city));
+                    out.println(String.format((city == " ") ? "???" : "Last city was: " + city));
                     // Принимаем от клиента в качестве ответа название города
                     String getAnswer = in.readLine();
                     // Выводим для наглядности принятое название города
@@ -28,7 +28,7 @@ public class Server {
                     // Проверяем введено ли первое слово
                     // или
                     // начинается ли введенное слово на последнюю букву текущего слова
-                    if(city == " " || getAnswer.charAt(0) == city.charAt(city.length() - 1)) {
+                    if(city == " " || getAnswer.toLowerCase().charAt(0) == city.toLowerCase().charAt(city.length() - 1)) {
                         city = getAnswer;
                         points++;
                         out.println("OK");
